@@ -1,0 +1,30 @@
+//Write a C program to delete vowels from a string.
+Input: Enter the string
+Output: Print the string without vowels otherwise print 'NULL'
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char ster[100],k;
+    int i,j,n=0;
+    fgets(ster,100,stdin);
+    n=strlen(ster);
+    n--;
+    for(i=0; i<n;i++){
+        k=ster[i];
+        if(k=='a' || k=='e'|| k=='i' || k=='o' || k=='u' || k=='A' || k=='E'|| k=='I' || k=='O' || k=='U'){
+            for(j=i; j<n; j++){
+                ster[j]=ster[(j+1)];
+            }
+            i--;
+            n--;
+        }
+    }
+    if(n==0)
+        printf("NULL");    
+    else
+        for(i=0;i<n; i++){
+            printf("%c", ster[i]);
+        }
+    return 0;
+}
