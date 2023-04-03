@@ -1,0 +1,21 @@
+//Write a program in C to print all unique elements in an array.
+
+#include<stdio.h>
+int main(){
+    int n,i,j,c,num[100];
+    scanf("%d",&n);
+    for(i=0; i<n;i++)
+        scanf("%d",&num[i]);
+    for(i=0; i<n; i++)
+    for(j=0; j<n; j++)
+        if(num[i]==num[j] && i!=j){
+            for(c=j; c<n; c++)
+                num[c]=num[c+1];
+            n--;
+        }
+    if(n==2 && num[0]==num[1])
+        n--;
+    for(i=0; i<n; i++)
+        printf("%d ",num[i]);
+    return 0;
+}
