@@ -1,0 +1,29 @@
+//Write a C program to sort an array and print it in ascending and descending order.
+
+#include<stdio.h>
+int main(){
+    int n,i,j,v,num[100];
+    scanf("%d",&n);
+    for(i=0; i<n;i++)
+        scanf("%d",&num[i]);
+    for(i=0; i<n; i++)
+        for(j=0; j<n; j++)
+        if(num[i]<num[j]){
+            v=num[i];
+            num[i]=num[j];
+            num[j]=v;
+        }
+    for(i=0; i<n; i++)
+        printf("%d ",num[i]);
+    printf("\n");
+    for(i=0; i<n; i++)
+        for(j=0; j<n; j++)
+        if(num[i]>num[j]){
+            v=num[i];
+            num[i]=num[j];
+            num[j]=v;
+        }
+    for(i=0; i<n; i++)
+        printf("%d ",num[i]);
+    return 0;
+}
