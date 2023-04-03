@@ -1,0 +1,37 @@
+Write a C program to create two grocery storage with 'n' items each. 
+Merge the items in both the storage to the new space storage (array). 
+Use the first storage (array) as it is and reverse the second storage for merging. 
+Finally, sort the new array and print the sorted elements. Implement the same by passing arrays to functions.
+
+#include<stdio.h>
+int main(){
+    int n,i,a,t,k,j;
+    char da[100];
+    int temp;
+    scanf("%d", &n);
+    for(i=0; i<n; i++){
+        scanf("%d", &a);
+        da[i]=a;
+    }
+    scanf("%d", &t);
+    k=n+t;
+    for(i=0; i<t; i++){
+        scanf("%d", &a);
+        da[k-1-i]=a;
+    }
+    for(i=0;i<k;i++)
+        printf("%d\n",da[i]);
+    //sorting
+    for(i=0; i<k;i++){
+        for(j=i+1; j<k;j++){
+            if(da[i]>da[j]){
+                temp=da[i];
+                da[i]=da[j];
+                da[j]=temp;
+            }
+        }
+    }
+    for(i=0;i<k;i++)
+        printf("%d\n",da[i]);
+    return 0;
+}
