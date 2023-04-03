@@ -1,0 +1,24 @@
+//Write a C program to convert the letters of a string into the opposite case (i.e. uppercase to lowercase or vice versa
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char ster[100],newl[100];
+    int n,i,j;
+    char AL[100]="QWERTYUIOPASDFGHJKLZXCVBNM";
+    char al[100]="qwertyuiopasdfghjklzxcvbnm";
+    fgets(ster,100,stdin);
+    n=strlen(ster);
+    
+    for(i=0; i<n; i++){
+        for(j=0; j<26; j++){
+            if(ster[i]==AL[j])
+                newl[i]=al[j];
+            else if(ster[i]==al[j])
+                newl[i]=AL[j];
+        }
+    }
+    for(i=0; i<n-1; i++)
+        printf("%c", newl[i]);
+    return 0;
+}
