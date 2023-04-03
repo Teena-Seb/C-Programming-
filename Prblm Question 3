@@ -1,0 +1,23 @@
+//Write a C program to count the occurrence of a particular alphabet in an input string.
+Input
+•Get the input string
+•Get the character to be searched
+
+#include <stdio.h>
+int main(){
+  	char str[500],ch[100];
+  	int i,Count,n=0;
+    scanf("%[^\n]s", str);
+  	scanf("%s", ch);
+  	for (i = 0; str[i] != '\0'; ++i)
+  	    n=i;
+  	for(i = 0; i <=n; i++)
+  	{
+  		if(str[i]==ch[0])  
+		{
+  			Count++;
+ 		}
+	}
+	printf("%d ",Count);
+  	return 0;
+}
