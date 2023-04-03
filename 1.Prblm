@@ -1,0 +1,34 @@
+The Earthquake Research Institute of Japan has recorded an earthquake that occurred in the year 2022 using the Richter scale.
+Develop a program to get the ’n’ (number of times) the earthquake has occurred and print the number of times in which the magnitude
+was low, medium, and high. The magnitude value is given in microns. If the value is less than 5.4(inclusive) in microns then it is low, 5.4 to 7.0 (inclusive) 
+is medium and more than 7.0 it is high. Also, if the number of times recorded is Zero, display as “No earthquake predicted” and if the number of times
+recorded is negative, display as “Invalid Input”.
+
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+    int n,i=0;
+    int cl=0,cm=0,ch=0;
+    float mag[100];
+    scanf("%d",&n);
+    if(n<0){
+        printf("Invalid Input");
+        exit(0);
+    }
+    else if(n==0){
+        printf("No earthquake predicted");
+        exit(0);
+    }
+    else if(n>0){
+        for(i=0; i<n; i++){
+            scanf("%f", &mag[i]);
+            if(mag[i]<=5.4)
+                cl++;
+            else if(mag[i]>5.4 && mag[i]<=7.0)
+                cm++;
+            else
+                ch++;
+        }
+    }
+    printf("%d\n%d\n%d",cl,cm,ch);
+}
