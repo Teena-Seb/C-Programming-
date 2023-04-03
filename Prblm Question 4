@@ -1,0 +1,39 @@
+//Write a C program to sum the first 'n' prime numbers using call by value.
+
+#include<stdio.h>
+#include<string.h>
+
+int prim(int f){
+    int k=0,i=2,j,a,b;
+    int sum=0;
+    char ster[100];
+    while(k!=f){
+        a=0;
+        b=0;
+        for(j=2; j<=i; j++){
+            if(i%j==0)
+                a++;
+            else
+                b++;
+        }
+        if(a<2){
+            ster[k]=i;
+            k++;
+        }
+        i++;
+    }
+    for(i=0; i<f; i++)
+        printf("%d ",ster[i]);
+    for(i=0; i<f; i++)
+        sum+=ster[i];
+    printf("\n%d",sum);
+    return 0;
+}
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    prim(n);
+    
+    return 0;
+}
