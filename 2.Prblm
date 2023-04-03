@@ -1,0 +1,97 @@
+Write a c-program to display the binary format of the user-entered number if it is prime else display it In hexadecimal format.
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int bin(int d){
+    int rem=0,pos=0,i;
+    char bi[100];
+    while(d>0){
+        rem=d%2;
+        bi[pos]=rem;
+        pos++;
+        d=d/2;
+    }
+    for(i=0; i<pos; i++)
+        printf("%d",bi[i]);
+    return 0;
+}
+int hexa(int d){
+    int rem=0,pos=0,j;
+
+    char alp[100]="FEDCBA";
+    char hex[100];
+    
+    while(d>0){
+        rem=d%16;
+        d/=16;
+        if(rem<=9){
+            hex[pos]=rem;
+        }
+        else if(rem>9){
+            j=15-rem;
+            hex[pos]=alp[j];
+        }
+        pos++;
+    }
+    pos--;
+    for(j=pos; j>=0; j--){
+        rem=hex[j];
+        if(rem==65)
+            printf("%c",'A');
+        else if(rem==66)
+            printf("%c",'B');
+        else if(rem==67)
+            printf("%c",'C');
+        else if(rem==68)
+            printf("%c",'D');
+        else if(rem==69)
+            printf("%c",'E');
+        else if(rem==70)
+            printf("%c",'F');
+        else
+            printf("%d",rem);
+    }
+    return 0;  
+}
+
+int prim(int f){
+    int k=0,i=2,j,a,b;
+    char ster[100];
+    while(k!=f){
+        a=0;
+        b=0;
+        for(j=2; j<=i; j++){
+            if(i%j==0)
+                a++;
+            else
+                b++;
+        }
+        if(a<2){
+            ster[k]=i;
+            k++;
+        }
+        i++;
+    }
+    a=0;
+    for(i=0; i<f; i++){
+        if(f==ster[i])
+            a++;
+    }
+    if(a==1){
+        bin(f);
+        exit(0);
+    }
+    else{
+        hexa(f);
+        exit(0);
+    }
+    return 0;
+}
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    prim(n);
+    return 0;
+}
