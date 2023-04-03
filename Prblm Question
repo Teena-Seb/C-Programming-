@@ -1,0 +1,20 @@
+//Write a C program to print the grade of a given mark. Print an 'A' grade if the mark is greater than 90,
+'B' grade if the mark is from 81 to 90, 'C' grade if the mark is from 71 and 80, 'D' grade if the marks are between 50 and 70,
+and 'F' grade if the mark is less than 50.
+
+#include<stdio.h>
+int main(){
+    int marks;
+    scanf("%d", &marks);
+    if (marks>90)
+        printf("A");
+    if (marks<=90 && marks>=81)
+        printf("B");
+    if (marks<=80 && marks>=71)
+        printf("C");
+    if (marks<=70 && marks>=50)
+        printf("D");
+    if (marks<50)
+        printf("F");
+    return 0;     
+}
