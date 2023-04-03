@@ -1,0 +1,54 @@
+//Write a C Program for Matrix multiplication of size nxn
+
+#include <stdio.h>
+int main(){
+    int A[100][100],B[100][100],C[100][100];
+    int row,col,sum;
+    int i,a,n[100];
+    for(i=0; i<4; i++)
+        scanf("%d",&n[i]);
+    for(row=0; row<n[0]; row++)
+    {
+        for(col=0; col<n[1]; col++)
+        {
+            scanf("%d", &A[row][col]);
+        }
+    }
+
+    for(row=0; row<n[2]; row++)
+    {
+        for(col=0; col<n[3]; col++)
+        {
+            scanf("%d", &B[row][col]);
+        }
+    }
+ 
+
+    for(row=0; row<n[0]; row++)
+    {
+        for(col=0; col<n[3]; col++)
+        {
+            sum = 0;
+
+            for(i=0; i<n[1]; i++)
+            {
+                sum += A[row][i] * B[i][col];
+            }
+ 
+            C[row][col] = sum;
+        }
+    }
+ 
+    for(row=0; row<n[0]; row++)
+    {
+        for(col=0; col<n[1]; col++)
+        {
+            if(C[row][col]==0)
+                a++;
+            else
+                printf("%d ", C[row][col]);
+        }
+    }
+ 
+    return 0;
+}
